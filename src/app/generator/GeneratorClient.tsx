@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { generateNames } from "./actions";
 
-export default function GeneratorClient() {
+type AssociationType = { id: number; label: string };
+
+export default function GeneratorClient({ types }: { types: AssociationType[] }) {
   const [theme, setTheme] = useState("");
   const [domain, setDomain] = useState("");
   const [keywords, setKeywords] = useState("");
@@ -46,8 +48,9 @@ export default function GeneratorClient() {
             className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black bg-white"
           >
             <option value="">-- Choisir un domaine --</option>
-            <option value="sport">Sport</option>
-            <option value="culture">Culture</option>
+            {types.map((t) => (
+              <option key={t.id} value={t.label}>{t.label}</option>
+            ))}
           </select>
         </div>
         <div className="flex flex-col gap-1">
