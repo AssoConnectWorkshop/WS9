@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import { Figtree } from "next/font/google";
 import "./globals.css";
+
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-figtree" });
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -14,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className={`${figtree.variable} antialiased`} style={{ fontFamily: "var(--font-figtree), sans-serif" }}>{children}</body>
     </html>
   );
 }
