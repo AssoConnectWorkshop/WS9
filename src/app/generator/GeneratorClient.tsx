@@ -40,13 +40,15 @@ export default function GeneratorClient() {
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium">Domaine d&apos;activité</label>
-          <input
-            type="text"
-            placeholder="ex: sport, éducation, solidarité..."
+          <select
             value={domain}
             onChange={(e) => setDomain(e.target.value)}
-            className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black"
-          />
+            className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black bg-white"
+          >
+            <option value="">-- Choisir un domaine --</option>
+            <option value="sport">Sport</option>
+            <option value="culture">Culture</option>
+          </select>
         </div>
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium">Mots-clés</label>
